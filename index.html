@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Pecoden</title>
+    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+    <script src="https://unpkg.com/xlsx-populate/browser/xlsx-populate.min.js"></script>
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="./main.js"></script>
+
+    <script class="u-script" type="text/javascript" src="jquery.js"></script>
+    <link rel="stylesheet" href="Bootstrap.css" media="screen">
+<link rel="stylesheet" href="Home.css" media="screen">
+    <script class="u-script" type="text/javascript" src="bootstrap.js" defer=""></script>
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster:400">
+  <body class="u-body u-xl-mode" data-lang="en">
+    
+    <section class="u-align-center u-clearfix u-image u-section-1" id="carousel_3984" data-image-width="2520" data-image-height="1418">
+      <img class="u-image u-image-contain u-image-default u-image-1" src="images/36496528_bell_notice_alert_new_event_information_sign_or_symbol_website_icon_3d_illustration.png" alt="" data-image-width="437" data-image-height="333">
+      <h2 style="    color: #f52727;" class="u-align-center u-custom-font u-font-lobster u-text u-text-default u-text-1">Aramex</h2>
+      <div class="u-align-center u-form u-form-1">  
+
+        <form onsubmit="loadPDF() , loadPDFB() ,time() ,loadXLSX() , loadXLSXD()" action="" method="post" enctype="multipart/form-data" class="u-clearfix u-form-spacing-32 u-form-vertical u-inner-form" >
+
+          <div id="vecter" class="u-form-email u-form-group u-form-partition-factor-2">
+            <label for="email-bb9A" class="u-label">  Aramex invoice</label>
+            <input required type="file" value="" id="servicestimeA" name="inputFieldA" class="setupload u-grey-10 u-input u-input-rectangle u-radius-50" accept=".pdf">
+          </div>
+        
+          <div id="vecter" class="u-form-group u-form-name u-form-partition-factor-2">
+            <label for="name-bb9A" class="u-label">employee invoice</label>
+            <input required type="file" value="" id="servicestimeB" name="inputFieldB" class="setupload u-grey-10 u-input u-input-rectangle u-radius-50" accept=".xlsx">
+          </div>
+
+          <div id="vecter" class="u-form-group u-form-name u-form-partition-factor-2">
+            <label for="name-bb9A" class="u-label">DHL invoice</label>
+            <input required type="file" value="" id="servicestimeC" name="inputFieldB" class="setupload u-grey-10 u-input u-input-rectangle u-radius-50" accept=".pdf">
+          </div>
+
+          <div id="vecter" class="u-form-group u-form-name u-form-partition-factor-2">
+            <label for="name-bb9A" class="u-label">Aramex Cost</label>
+            <input required type="file" value="" id="servicestimeD" name="inputFieldB" class="setupload u-grey-10 u-input u-input-rectangle u-radius-50" accept=".xlsx">
+          </div>
+
+          <div id="vecter" class="E u-form-group u-form-name u-form-partition-factor-2">
+            <label for="name-bb9A" class="u-label">DHL employee</label>
+            <input required type="file" value="" id="servicestimeE" name="inputFieldB" class=" setupload u-grey-10 u-input u-input-rectangle u-radius-50" accept=".xlsx">
+          </div>
+        
+          <div class="u-align-right u-form-group u-form-submit" id="sendtable">
+            <a class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-palette-4-base u-radius-50 u-btn-1">Send</a>
+            <input type="submit" value="submit" class="u-form-control-hidden">
+          </div>
+        
+          <div class="message u-form-send-error u-form-send-message" id="message">Thank you for the invoice table</div>
+          <input type="hidden" value="" name="recaptchaResponse">
+        
+        </form>
+
+        <div class="u-align-right u-form-group u-form-submit d-none" id="Reloaded">
+          <button  onclick="location.reload()" class="reloadd u-border-none u-btn u-btn-round u-btn-submit u-button-style u-palette-4-base u-radius-50 u-btn-1 ">Reload</button>
+        </div>
+
+        
+
+      </div>
+      <div class="u-table u-table-responsive u-table-1">
+        <table class="u-table-entity u-table-entity-1" id="example">
+          <colgroup>
+            <col width="5.3%">
+            <col width="5.3%">
+            <col width="5.3%">
+            <col width="5.3%">
+            <col width="5.3%">
+            <col width="5.3%">
+            <col width="5.3%">
+            <col width="5.3%">
+            <col width="5.3%">
+            <col width="5.3%">
+            <col width="5.3%">
+            <col width="5.3%">
+            <col width="5.3%">
+            <col width="5.3%">
+            <col width="5.3%">
+
+          </colgroup>
+          <thead class="u-black u-table-header u-table-header-1">
+            <tr style="height: 45px;">
+              <th class="color1 u-table-cell u-table-border-right">S.No</th>
+              <th class="color2 u-table-cell u-table-border-right">HAWB</th>
+              <th class="color1 u-table-cell u-table-border-right">Invoice NO.</th>
+              <th class="color2 u-table-cell u-table-border-right">date</th>
+              <th class="color1 u-table-cell u-table-border-right">country</th>
+              <th class="color2 u-table-cell u-table-border-right">Prod Type</th>
+              <th class="color1 u-table-cell u-table-border-right">Weight Aramex</th>
+              <th class="color2 u-table-cell u-table-border-right">Weight WODEX</th>
+              <th class="color1 u-table-cell u-table-border-right">Profit</th>
+              <th class="color2 u-table-cell u-table-border-right">Loss</th>
+              <th class="color1 u-table-cell u-table-border-right">Amount Aremax</th>
+              <th class="color2 u-table-cell u-table-border-right">price cha. Aramex</th>
+              <th class="color1 u-table-cell u-table-border-right">price WODEX </th>
+              <th class="color2 u-table-cell u-table-border-right">price sale</th>
+              <th class="color1 u-table-cell u-table-border-right">profit sale</th>
+              
+              
+            </tr>
+            <tr style="height: 45px;">
+              <th class="color1 u-table-cell u-table-border-right">التسلسل</th>
+              <th class="color2 u-table-cell u-table-border-right">HAWB</th>
+              <th class="color1 u-table-cell u-table-border-right">رقم الفاتوره</th>
+              <th class="color2 u-table-cell u-table-border-right">التاريخ</th>
+              <th class="color1 u-table-cell u-table-border-right">الوجهه</th>
+              <th class="color2 u-table-cell u-table-border-right">نوع المنتج</th>
+              <th class="color1 u-table-cell u-table-border-right"> وزن Aramex</th>
+              <th class="color2 u-table-cell u-table-border-right">وزن WODEX</th>
+              <th class="color1 u-table-cell u-table-border-right">مكسب الوزن</th>
+              <th class="color2 u-table-cell u-table-border-right">خساره الوزن</th>
+              <th class="color1 u-table-cell u-table-border-right">سعر Aramex</th>
+              <th class="color2 u-table-cell u-table-border-right">تغير سعر Aramex</th>
+              <th class="color1 u-table-cell u-table-border-right">سعر الاتفاق مع Aramex</th>
+              <th class="color2 u-table-cell u-table-border-right">سعر بيع Wodex</th>
+              <th class="color1 u-table-cell u-table-border-right">الفائده </th>
+              
+              
+            </tr>
+          </thead>
+          <tbody class="u-table-alt-palette-1-light-3 u-table-body">
+
+
+          </tbody>
+        </table>
+      </div>
+      <div class="u-align-center u-table u-table-responsive u-table-2">
+        <table class="u-table-entity">
+          <colgroup>
+            <col width="5.3%">
+            <col width="5.3%">
+            <col width="5.3%">
+            <col width="5.3%">
+            <col width="5.3%">
+            <col width="5.3%">
+            <col width="5.3%">
+            <col width="5.3%">
+            <col width="5.3%">
+            <col width="5.3%">
+            <col width="5.3%">
+            <col width="5.3%">
+            <col width="5.3%">
+            <col width="5.3%">
+            <col width="5.3%">
+            
+          </colgroup>
+          <tbody class="u-custom-font u-table-body u-text-font">
+            <tr style="height: 58px;">
+              <td class="color1 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-palette-5-light-1 u-table-cell u-table-cell-64">Total</td>
+              <td class="color2 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell u-table-cell-56"></td>
+              <td class="color1 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell u-table-cell-57"></td>
+              <td class="color2 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell u-table-cell-56"></td>
+              <td class="color1 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell u-table-cell-56"></td>
+              <td class="color2 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell u-table-cell-64"></td>
+              <td id="totwightwodex" class="color1 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell u-table-cell-64"></td>
+              <td id="totwight" class="color2 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell u-table-cell-58"></td>
+              <td id="totalprofit" class="color1 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right  u-table-cell u-table-cell-64"></td>
+              <td id="totalless" class="color2 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right  u-table-cell u-table-cell-64"></td>
+              <td id="totnet" class="color1 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell u-table-cell-58"></td>
+              <td id="test" class="color2 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right  u-table-cell u-table-cell-64"></td>
+              <td id="totalWodex" class="color1 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell u-table-cell-56"></td>
+              <td id="totalpriceE" class="color2 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell u-table-cell-64"></td>
+              <td id="totalsale" class="color1 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell u-table-cell-64"></td>
+            </tr>
+          </tbody>
+        </table>
+        <div>
+          <button class="dowaramex d-none" id="dowaramex0">Download invoice</button>
+          
+        </div>
+      </div>
+      <div class="u-table u-table-responsive u-table-1">
+        <table class="u-table-entity u-table-entity-1" id="exampleB">
+          <colgroup>
+            <col width="8.3%">
+            <col width="8.3%">
+            <col width="8.3%">
+            <col width="8.3%">
+            <col width="8.3%">
+            <col width="8.3%">
+            <col width="8.3%">
+            <col width="8.3%">
+            <col width="8.3%">
+            <col width="8.3%">
+            <col width="8.3%">
+            <col width="8.3%">
+          </colgroup>
+          <thead class="u-black u-table-header u-table-header-1">
+            <tr style="height: 25px;">
+              <th class="color11 u-table-cell u-table-border-right">S.NO</th>
+              <th class="color22 u-table-cell u-table-border-right">HAWB</th>
+              <th class="color11 u-table-cell u-table-border-right">Invoice NO.</th>
+              <th class="color22 u-table-cell u-table-border-right">Shipment Date</th>
+              <th class="color11 u-table-cell u-table-border-right">country</th>
+              <th class="color22 u-table-cell u-table-border-right">Weight DHL</th>
+              <th class="color11 u-table-cell u-table-border-right">Weight Wodex</th>
+              <th class="color22 u-table-cell u-table-border-right">Profit</th>
+              <th class="color11 u-table-cell u-table-border-right">Less</th>
+              <th class="color22 u-table-cell u-table-border-right">Total DHL</th>
+              <th class="color11 u-table-cell u-table-border-right">price Wodex</th>
+              <th class="color22 u-table-cell u-table-border-right">profit total</th>
+              
+            </tr>
+            <tr style="height: 25px;">
+              <th class="color11 u-table-cell u-table-border-right">التسلسل</th>
+              <th class="color22 u-table-cell u-table-border-right">HAWB</th>
+              <th class="color11 u-table-cell u-table-border-right">رقم الفاتوره</th>
+              <th class="color22 u-table-cell u-table-border-right">تاريخ الإرسال</th>
+              <th class="color11 u-table-cell u-table-border-right">الوجهه</th>
+              <th class="color22 u-table-cell u-table-border-right">الوزن DHL</th>
+              <th class="color11 u-table-cell u-table-border-right">الوزن wodex</th>
+              <th class="color22 u-table-cell u-table-border-right">مكسب الوزن</th>
+              <th class="color11 u-table-cell u-table-border-right">خساره الوزن</th>
+              <th class="color22 u-table-cell u-table-border-right">السعر DHL</th>
+              <th class="color11 u-table-cell u-table-border-right">سعر wodex</th>
+              <th class="color22 u-table-cell u-table-border-right">الفائده</th>
+            </tr>
+          </thead>
+          <tbody class="u-table-alt-palette-1-light-3 u-table-body">
+
+          </tbody>
+        </table>
+      </div>
+      <div class="u-align-center u-table u-table-responsive u-table-2">
+        <table class="u-table-entity">
+          <colgroup>
+            <col width="8.3%">
+            <col width="8.3%">
+            <col width="8.3%">
+            <col width="8.3%">
+            <col width="8.3%">
+            <col width="8.3%">
+            <col width="8.3%">
+            <col width="8.3%">
+            <col width="8.3%">
+            <col width="8.3%">
+            <col width="8.3%">
+            <col width="8.3%">
+          </colgroup>
+          <tbody class="u-custom-font u-table-body u-text-font">
+            <tr style="height: 58px;">
+              <td class="color1 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-palette-5-light-1 u-table-cell u-table-cell-64">Total</td>
+              <td  class="color2 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell u-table-cell-56"></td>
+              <td  class="color1 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell u-table-cell-56"></td>
+              <td  class="color2 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell u-table-cell-56"></td>
+              <td  class="color1 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell u-table-cell-56"></td>
+              <td id="totalwightB" class="color2 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell u-table-cell-56"></td>
+              <td id="totalwightWodexB" class="color1 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell u-table-cell-64"> </td>
+              <td id="totwightwodexprofit"  class="color2 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-palette-5-light-1 u-table-cell u-table-cell-64"></td>
+              <td id="totwightwodexless" class="color1 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-palette-5-light-1 u-table-cell u-table-cell-64"></td>
+              <td id="totalpriceB" class="color2 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell u-table-cell-56"></td>
+              <td id="totalpeiceWodexB" class="color1 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell u-table-cell-56"></td>
+              <td id="totalprofitB" class="color2 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell u-table-cell-56"></td>
+            </tr>
+          </tbody>
+        </table>
+        <div>
+          <button class="dowaramex d-none" id="dowaramex1" >Download invoice</button>
+          
+        </div>
+      </div>
+
+    </section>
+
+
+</body>
+</html>
