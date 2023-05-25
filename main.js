@@ -244,6 +244,12 @@ for(let l = 0 ; l < (column1.length) ; l++){
               document.getElementById("priceWODEX"+[l+1]).innerHTML = column33[s] ;
                       if(column4[l] != column33[s]){
                       document.getElementById("change"+[l+1]).innerHTML = "Change" ;
+                      if(column4[l] < column33[s]){
+                        document.getElementById("priceWODEX"+(l+1)).style.color = "green";}
+                        else{
+                          document.getElementById("priceWODEX"+(l+1)).style.color = "red";
+                        }
+
                       }
                     }
               }else if (["United"].includes(column10[l])){
@@ -254,11 +260,12 @@ for(let l = 0 ; l < (column1.length) ; l++){
                   number += 1 ;
                 if(column4[l] != column63[s]){
                   document.getElementById("change"+[l+1]).innerHTML = "Change" ;
-                        if(column52[l] > column63[s]){
-                        document.getElementById("profitsale"+(l+1)).style.color = "green";}
-                        else{
-                          document.getElementById("profitsale"+(l+1)).style.color = "red";
-                        }
+                  if(column4[l] < column63[s]){
+                    document.getElementById("priceWODEX"+(l+1)).style.color = "green";}
+                    else{
+                      document.getElementById("priceWODEX"+(l+1)).style.color = "red";
+                    }
+                  
                       }
                     }
                   }
