@@ -223,62 +223,69 @@
           }
 
 
-number = 0 ;
+let numberC = 0 ;
 let count41 = [] ;
 let count51 = []
 
-for(let l = 0 ; l < (column1.length) ; l++){
+for(let l = 0 ; l < (column32.length) ; l++){
   for(let r = 0 ; r < (column32.length) ; r++){
-    if(column2[l] == column32[r]){
-                        if((((parseFloat(column52[r])) - (parseFloat(column4[l]))).toFixed(3)) > 0){
-                        document.getElementById("profitsale"+(l+1)).style.color = "green";}
+    if(column32[l] == column2[r]){
+                        if((((parseFloat(column52[l])) - (parseFloat(column4[r]))).toFixed(3)) > 0){
+                        document.getElementById("profitsale"+(r+1)).style.color = "green";}
                         else{
-                          document.getElementById("profitsale"+(l+1)).style.color = "red";
+                          document.getElementById("profitsale"+(r+1)).style.color = "red";
                         }
       for(let s = 0 ; s < (column13.length) ; s++){
-  if (["Saudi", "Bahrain", "Oman", "Qatar", "Utd.Arab"].includes(column10[l]) ) {
-      if(column7[l] == column13[s]){
-        totalWodex += (parseFloat(column33[s]))  ;
-        count41[number] =(parseFloat( column33[s])) ;
-        number += 1 ;
-              document.getElementById("priceWODEX"+[l+1]).innerHTML = column33[s] ;
-                      if(column4[l] != column33[s]){
-                      document.getElementById("change"+[l+1]).innerHTML = "Change" ;
-                      if(column4[l] < column33[s]){
-                        document.getElementById("priceWODEX"+(l+1)).style.color = "green";}
+  if (["Saudi", "Bahrain", "Oman", "Qatar", "Utd.Arab"].includes(column10[r]) ) {
+      if(column7[r] == column13[s]){
+        totalWodex += (parseFloat(column33[s])) ;
+        count41[numberC] =(parseFloat( column33[s])) ;
+        count51[numberC] =" " ;
+        numberC += 1 ;
+              document.getElementById("priceWODEX"+[r+1]).innerHTML = column33[s] ;
+                      if(column4[r] != column33[s]){
+                      if(column4[r] < column33[s]){
+                        document.getElementById("change"+[r+1]).innerHTML = (column33[s] - column4[r]).toFixed(3) ;
+                        document.getElementById("change"+(r+1)).style.color = "green";}
                         else{
-                          document.getElementById("priceWODEX"+(l+1)).style.color = "red";
+                          document.getElementById("change"+[r+1]).innerHTML = (column4[r] - column33[s]).toFixed(3) ;
+                          document.getElementById("change"+(r+1)).style.color = "red";
                         }
-
                       }
                     }
-              }else if (["United"].includes(column10[l])){
-                if(column7[l] == column43[s]){
-                  totalWodex += (parseFloat(column33[s]))  ;
-                  count51[number] =(parseFloat( column63[s])) ;
-                  document.getElementById("priceWODEX"+[l+1]).innerHTML = column63[s] ;
-                  number += 1 ;
-                if(column4[l] != column63[s]){
-                  document.getElementById("change"+[l+1]).innerHTML = "Change" ;
-                  if(column4[l] < column63[s]){
-                    document.getElementById("priceWODEX"+(l+1)).style.color = "green";}
+              }else if (["United"].includes(column10[r])){
+                if(column7[r] == column43[s]){
+                  totalWodex += (parseFloat(column63[s]))  ;
+                  count41[numberC] =" " ;
+                  count51[numberC] =(parseFloat( column63[s])) ;
+                  document.getElementById("priceWODEX"+[r+1]).innerHTML = column63[s] ;
+                  numberC += 1 ;
+                if(column4[r] != column63[s]){
+                  if(column4[r] < column63[s]){
+                    document.getElementById("change"+[r+1]).innerHTML = (column63[s] - column4[r]).toFixed(3) ;
+                    document.getElementById("change"+(r+1)).style.color = "green";}
                     else{
-                      document.getElementById("priceWODEX"+(l+1)).style.color = "red";
+                      document.getElementById("change"+[r+1]).innerHTML = (column4[r] - column63[s]).toFixed(3) ;
+                      document.getElementById("change"+(r+1)).style.color = "red";
                     }
-                  
                       }
+                    }
+                  }else{
+                    document.getElementById("priceWODEX"+[r+1]).innerHTML = " " ;
+                    document.getElementById("change"+[r+1]).innerHTML =" ";
+                    
+                    if(column7[r] == column13[s] ){
+                      count51[numberC] =" " ;
+                      count41[numberC] =" " ;
+                      numberC += 1
                     }
                   }
-                    
-                    
-                  
                 }
                     }
-
   }
 }
 
-// console.log(count51)
+console.log(count41 ,count51)
 
         document.getElementById("totalprofit").innerHTML = totalprofit + " KG" ;
         document.getElementById("totalless").innerHTML = totalless + " KG" ;
@@ -304,7 +311,7 @@ for(let l = 0 ; l < (column1.length) ; l++){
 
       function generateRandomData(column1,column2,column3,column10,column9,column7,column1_1 ,column1_2 ,column4 ,column1_3 , column42 , column33 , column63 ,column52 ,count ,number ,count21 ,count31 ,count41 ,count51 ,totalWodex ,totalless ,totalnet ,totalprofit ,totalsale ,totalwight ,totalpriceE ,totwightwodex ,count61) {
             var data = [];
-            console.log(column7[count[69]])
+            
             for (var i = -1; i < (number+1) ; i++) {
                 var row = [];
                 for (var j = 0; j < 15; j++) {
@@ -341,6 +348,7 @@ for(let l = 0 ; l < (column1.length) ; l++){
                     row.push("profit sale");
                     // document.getElementById(" " + count[i]).innerHTML = 
                   }else if( i < number){
+                    // console.log(count41[i] , column4[count[i]])
                     if(j==0)
                     row.push(column1[count[i]]);
                     else if (j==1)
@@ -374,21 +382,22 @@ for(let l = 0 ; l < (column1.length) ; l++){
                     else if (j==10)
                       row.push(column4[count[i]]);
                     else if (j==11){
-                      if (["Saudi", "Bahrain", "Oman", "Qatar", "Utd.Arab"].includes(column10[i]) ) {
-                        if(count41[i] != column4[count[i]]){
-                          row.push("change");
-                        }else{
-                          row.push(" ");
-                        }
-                      }else if (["United"].includes(column10[i])){
-                        if(count51[i] != column4[count[i]]){
-                          row.push("change");
-                        }else{
-                          row.push(" ");
-                        }
-                      }else{
-                        row.push(" ");
-                      }
+                      // if (["Saudi", "Bahrain", "Oman", "Qatar", "Utd.Arab"].includes(column10[i]) ) {
+                      //   if(count41[i] == column4[count[i]]){
+                      //     row.push(" ");
+                      //   }else{
+                      //     row.push(count41[i] - column4[count[i]]);
+                      //   }
+                      // }else if (["United"].includes(column10[i])){
+                      //   if(count51[i] == column4[count[i]]){
+                      //     row.push(" ");
+                      //   }else{
+                      //     row.push(count51[i] - column4[count[i]]);
+                      //   }
+                      // }else{
+                      //   row.push(" ");
+                      // }
+                      row.push(" ");
                     }
                     else if (j==12){
                       if (["Saudi", "Bahrain", "Oman", "Qatar", "Utd.Arab"].includes(column10[i]) ) {
@@ -398,7 +407,8 @@ for(let l = 0 ; l < (column1.length) ; l++){
                       }else{
                         row.push(" ");
                       }
-                    } // or column63
+                      // row.push(" ");
+                    } 
                     else if (j==13)
                     row.push(count31[i]);
                     else if (j==14)
