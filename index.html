@@ -21,7 +21,7 @@
       <h2 style="    color: #f52727;" class="u-align-center u-custom-font u-font-lobster u-text u-text-default u-text-1">Aramex</h2>
       <div class="u-align-center u-form u-form-1">  
 
-        <form onsubmit="loadPDF() , loadPDFB() ,time() ,loadXLSX() , loadXLSXD()" action="" method="post" enctype="multipart/form-data" class="u-clearfix u-form-spacing-32 u-form-vertical u-inner-form" >
+        <form onsubmit="loadPDF() ,time() ,loadXLSX() , loadXLSXD()" action="" method="post" enctype="multipart/form-data" class="u-clearfix u-form-spacing-32 u-form-vertical u-inner-form" >
 
           <div id="vecter" class="u-form-email u-form-group u-form-partition-factor-2">
             <label for="email-bb9A" class="u-label">  Aramex invoice</label>
@@ -33,20 +33,20 @@
             <input required type="file" value="" id="servicestimeB" name="inputFieldB" class="setupload u-grey-10 u-input u-input-rectangle u-radius-50" accept=".xlsx">
           </div>
 
-          <div id="vecter" class="u-form-group u-form-name u-form-partition-factor-2">
+          <!-- <div id="vecter" class="u-form-group u-form-name u-form-partition-factor-2">
             <label for="name-bb9A" class="u-label">DHL invoice</label>
             <input required type="file" value="" id="servicestimeC" name="inputFieldB" class="setupload u-grey-10 u-input u-input-rectangle u-radius-50" accept=".pdf">
-          </div>
+          </div> -->
 
-          <div id="vecter" class="u-form-group u-form-name u-form-partition-factor-2">
+          <div id="vecter" class="E u-form-group u-form-name u-form-partition-factor-2">
             <label for="name-bb9A" class="u-label">Aramex Cost</label>
             <input required type="file" value="" id="servicestimeD" name="inputFieldB" class="setupload u-grey-10 u-input u-input-rectangle u-radius-50" accept=".xlsx">
           </div>
 
-          <div id="vecter" class="E u-form-group u-form-name u-form-partition-factor-2">
+          <!-- <div id="vecter" class="E u-form-group u-form-name u-form-partition-factor-2">
             <label for="name-bb9A" class="u-label">DHL employee</label>
             <input required type="file" value="" id="servicestimeE" name="inputFieldB" class=" setupload u-grey-10 u-input u-input-rectangle u-radius-50" accept=".xlsx">
-          </div>
+          </div> -->
         
           <div class="u-align-right u-form-group u-form-submit" id="sendtable">
             <a class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-palette-4-base u-radius-50 u-btn-1">Send</a>
@@ -90,14 +90,14 @@
               <th class="color1 u-table-cell u-table-border-right">S.No</th>
               <th class="color2 u-table-cell u-table-border-right">HAWB</th>
               <th class="color1 u-table-cell u-table-border-right">Invoice NO.</th>
-              <th class="color2 u-table-cell u-table-border-right">date</th>
-              <th class="color1 u-table-cell u-table-border-right">country</th>
+              <th class="color2 u-table-cell u-table-border-right">Date</th>
+              <th class="color1 u-table-cell u-table-border-right">Country</th>
               <th class="color2 u-table-cell u-table-border-right">Prod Type</th>
               <th class="color1 u-table-cell u-table-border-right">Weight Aramex</th>
               <th class="color2 u-table-cell u-table-border-right">Weight WODEX</th>
               <th class="color1 u-table-cell u-table-border-right">Profit</th>
               <th class="color2 u-table-cell u-table-border-right">Loss</th>
-              <th class="color1 u-table-cell u-table-border-right">Amount Aremax</th>
+              <th class="color1 u-table-cell u-table-border-right">Amount Aramex</th>
               <th class="color2 u-table-cell u-table-border-right">price cha. Aramex</th>
               <th class="color1 u-table-cell u-table-border-right">price WODEX </th>
               <th class="color2 u-table-cell u-table-border-right">price sale</th>
@@ -176,97 +176,6 @@
           
         </div>
       </div>
-      <div class="u-table u-table-responsive u-table-1">
-        <table class="u-table-entity u-table-entity-1" id="exampleB">
-          <colgroup>
-            <col width="8.3%">
-            <col width="8.3%">
-            <col width="8.3%">
-            <col width="8.3%">
-            <col width="8.3%">
-            <col width="8.3%">
-            <col width="8.3%">
-            <col width="8.3%">
-            <col width="8.3%">
-            <col width="8.3%">
-            <col width="8.3%">
-            <col width="8.3%">
-          </colgroup>
-          <thead class="u-black u-table-header u-table-header-1">
-            <tr style="height: 25px;">
-              <th class="color11 u-table-cell u-table-border-right">S.NO</th>
-              <th class="color22 u-table-cell u-table-border-right">HAWB</th>
-              <th class="color11 u-table-cell u-table-border-right">Invoice NO.</th>
-              <th class="color22 u-table-cell u-table-border-right">Shipment Date</th>
-              <th class="color11 u-table-cell u-table-border-right">country</th>
-              <th class="color22 u-table-cell u-table-border-right">Weight DHL</th>
-              <th class="color11 u-table-cell u-table-border-right">Weight Wodex</th>
-              <th class="color22 u-table-cell u-table-border-right">Profit</th>
-              <th class="color11 u-table-cell u-table-border-right">Less</th>
-              <th class="color22 u-table-cell u-table-border-right">Total DHL</th>
-              <th class="color11 u-table-cell u-table-border-right">price Wodex</th>
-              <th class="color22 u-table-cell u-table-border-right">profit total</th>
-              
-            </tr>
-            <tr style="height: 25px;">
-              <th class="color11 u-table-cell u-table-border-right">التسلسل</th>
-              <th class="color22 u-table-cell u-table-border-right">HAWB</th>
-              <th class="color11 u-table-cell u-table-border-right">رقم الفاتوره</th>
-              <th class="color22 u-table-cell u-table-border-right">تاريخ الإرسال</th>
-              <th class="color11 u-table-cell u-table-border-right">الوجهه</th>
-              <th class="color22 u-table-cell u-table-border-right">الوزن DHL</th>
-              <th class="color11 u-table-cell u-table-border-right">الوزن wodex</th>
-              <th class="color22 u-table-cell u-table-border-right">مكسب الوزن</th>
-              <th class="color11 u-table-cell u-table-border-right">خساره الوزن</th>
-              <th class="color22 u-table-cell u-table-border-right">السعر DHL</th>
-              <th class="color11 u-table-cell u-table-border-right">سعر wodex</th>
-              <th class="color22 u-table-cell u-table-border-right">الفائده</th>
-            </tr>
-          </thead>
-          <tbody class="u-table-alt-palette-1-light-3 u-table-body">
-
-          </tbody>
-        </table>
-      </div>
-      <div class="u-align-center u-table u-table-responsive u-table-2">
-        <table class="u-table-entity">
-          <colgroup>
-            <col width="8.3%">
-            <col width="8.3%">
-            <col width="8.3%">
-            <col width="8.3%">
-            <col width="8.3%">
-            <col width="8.3%">
-            <col width="8.3%">
-            <col width="8.3%">
-            <col width="8.3%">
-            <col width="8.3%">
-            <col width="8.3%">
-            <col width="8.3%">
-          </colgroup>
-          <tbody class="u-custom-font u-table-body u-text-font">
-            <tr style="height: 58px;">
-              <td class="color1 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-palette-5-light-1 u-table-cell u-table-cell-64">Total</td>
-              <td  class="color2 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell u-table-cell-56"></td>
-              <td  class="color1 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell u-table-cell-56"></td>
-              <td  class="color2 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell u-table-cell-56"></td>
-              <td  class="color1 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell u-table-cell-56"></td>
-              <td id="totalwightB" class="color2 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell u-table-cell-56"></td>
-              <td id="totalwightWodexB" class="color1 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell u-table-cell-64"> </td>
-              <td id="totwightwodexprofit"  class="color2 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-palette-5-light-1 u-table-cell u-table-cell-64"></td>
-              <td id="totwightwodexless" class="color1 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-palette-5-light-1 u-table-cell u-table-cell-64"></td>
-              <td id="totalpriceB" class="color2 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell u-table-cell-56"></td>
-              <td id="totalpeiceWodexB" class="color1 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell u-table-cell-56"></td>
-              <td id="totalprofitB" class="color2 u-border-3 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell u-table-cell-56"></td>
-            </tr>
-          </tbody>
-        </table>
-        <div>
-          <button class="dowaramex d-none" id="dowaramex1" >Download invoice</button>
-          
-        </div>
-      </div>
-
     </section>
 
 
