@@ -242,17 +242,16 @@ for(let l = 0 ; l < (column1.length) ; l++){
         count41[number] =(parseFloat( column33[s])) ;
         number += 1 ;
               document.getElementById("priceWODEX"+[l+1]).innerHTML = column33[s] ;
-              // console.log(parseFloat(column33[s]).toFixed(3))
-              
                       if(column4[l] != column33[s]){
                       document.getElementById("change"+[l+1]).innerHTML = "Change" ;
                       }
                     }
               }else if (["United"].includes(column10[l])){
-                if(column7[l] == column42[s]){
+                if(column7[l] == column43[s]){
                   totalWodex += (parseFloat(column33[s]))  ;
                   count51[number] =(parseFloat( column63[s])) ;
-                  document.getElementById("priceWODEX"+[l+1]).innerHTML = column63[v] ;
+                  document.getElementById("priceWODEX"+[l+1]).innerHTML = column63[s] ;
+                  number += 1 ;
                 if(column4[l] != column63[s]){
                   document.getElementById("change"+[l+1]).innerHTML = "Change" ;
                         if(column52[l] > column63[s]){
@@ -263,6 +262,9 @@ for(let l = 0 ; l < (column1.length) ; l++){
                       }
                     }
                   }
+                    
+                    
+                  
                 }
                     }
 
