@@ -7,7 +7,6 @@
         document.getElementById("sendtable").style.display = 'none' ;
         document.getElementById("Reloaded").style.display = 'block ' ;
         document.getElementById("dowaramex0").style.display = 'block ' ;
-        document.getElementById("dowaramex1").style.display = 'block ' ;
 
       }
 
@@ -273,8 +272,7 @@ for(let l = 0 ; l < (column32.length) ; l++){
                   }else{
                     document.getElementById("priceWODEX"+[r+1]).innerHTML = " " ;
                     document.getElementById("change"+[r+1]).innerHTML =" ";
-                    
-                    if(column7[r] == column13[s] ){
+                    if(column7[r] == column43[s]){
                       count51[numberC] =" " ;
                       count41[numberC] =" " ;
                       numberC += 1
@@ -285,7 +283,6 @@ for(let l = 0 ; l < (column32.length) ; l++){
   }
 }
 
-console.log(count41 ,count51)
 
         document.getElementById("totalprofit").innerHTML = totalprofit + " KG" ;
         document.getElementById("totalless").innerHTML = totalless + " KG" ;
@@ -383,16 +380,16 @@ console.log(count41 ,count51)
                       row.push(column4[count[i]]);
                     else if (j==11){
                       // if (["Saudi", "Bahrain", "Oman", "Qatar", "Utd.Arab"].includes(column10[i]) ) {
-                      //   if(count41[i] == column4[count[i]]){
-                      //     row.push(" ");
-                      //   }else{
+                      //   if(count41[i] != column4[count[i]]){
                       //     row.push(count41[i] - column4[count[i]]);
+                      //   }else{
+                      //     row.push(" ");
                       //   }
                       // }else if (["United"].includes(column10[i])){
-                      //   if(count51[i] == column4[count[i]]){
-                      //     row.push(" ");
-                      //   }else{
+                      //   if(count51[i] != column4[count[i]]){
                       //     row.push(count51[i] - column4[count[i]]);
+                      //   }else{
+                      //     row.push(" ");
                       //   }
                       // }else{
                       //   row.push(" ");
@@ -400,15 +397,15 @@ console.log(count41 ,count51)
                       row.push(" ");
                     }
                     else if (j==12){
-                      if (["Saudi", "Bahrain", "Oman", "Qatar", "Utd.Arab"].includes(column10[i]) ) {
+                      if (["Saudi", "Bahrain", "Oman", "Qatar", "Utd.Arab"].includes(column10[count[i]]) ) {
                         row.push(count41[i]);
-                      }else if (["United"].includes(column10[i])){
+                      }else if (["United"].includes(column10[count[i]])){
                         row.push(count51[i]);
                       }else{
                         row.push(" ");
                       }
                       // row.push(" ");
-                    } 
+                    } // or column63
                     else if (j==13)
                     row.push(count31[i]);
                     else if (j==14)
@@ -678,419 +675,3 @@ reader.readAsArrayBuffer(file);
 
 
 
-
-// <------------------------------------------------------------------------------------------------------------------------------->
-// <------------------------------------------------------------------------------------------------------------------------------->
-// <------------------------------------------------------------------------------------------------------------------------------->
-  
-async function loadXLSXE() {
-const fileInput = document.getElementById('servicestimeE');
-const file = fileInput.files[0];
-
-// تحميل محتوى الملف XLSX
-const reader = new FileReader();
-return new Promise((resolve, reject) => {
-  reader.onload = function (event) {
-    const data = new Uint8Array(event.target.result);
-    const workbook = XLSX.read(data, { type: 'array' });
-
-    // تخزين محتوى الملف في صفحة الويب
-    const sheetName = workbook.SheetNames[0];
-    const worksheet = workbook.Sheets[sheetName];
-
-    const column12 = [];
-    const column24 = [];
-    const column34 = [];
-    const column44 = [];
-    const column54 = [];
-    const column64 = [];
-    const column74 = [];
-    const column84 = [];
-
-    // الحصول على حقول العمود المطلوبة (مثلاً العمود A و B و C و D و E)
-    const desiredColumns = ['A', 'B', 'C', 'D', 'E' ,'F' ,'G' ,'H'];
-
-    const range = XLSX.utils.decode_range(worksheet['!ref']);
-    for (let i = 0; i < (desiredColumns.length); i++) {
-      const column = desiredColumns[i];
-
-      for (let row = range.s.r + 4; row <= (range.e.r); row++) {
-        const cellAddress = column + row;
-        let cellValue = worksheet[cellAddress]?.v;
-
-        // تحويل القيمة إلى نص في حالة العمود الأول
-        if (i === 0) {
-          const cellDate = XLSX.SSF.parse_date_code(cellValue);
-          cellValue = `${cellDate.m}/${cellDate.d}/${cellDate.y}`;
-        }
-
-        // تخزين قيم العمود في المصفوفات المنفصلة
-        switch (i) {
-          case 0:
-            column12.push(cellValue);
-            break;
-          case 1:
-            column24.push(cellValue);
-            break;
-          case 2:
-            column34.push(cellValue);
-            break;
-          case 3:
-            column44.push(cellValue);
-            break;
-          case 4:
-            column54.push(cellValue);
-            break;
-            case 5:
-            column64.push(cellValue);
-            break;
-            case 6:
-            column74.push(cellValue);
-            break;
-            case 7:
-            column84.push(cellValue);
-            break;
-        }
-      }
-    }
-// console.log(column84)
-    resolve({
-      column24,
-      column34,
-      column44,
-      column54,
-      column84
-    });
-  };
-
-  reader.onerror = function (event) {
-    reject(event.target.error);
-  };
-
-  reader.readAsArrayBuffer(file);
-});
-}
-
-
-// <------------------------------------------------------------------------------------------------------------------------------->
-// <------------------------------------------------------------------------------------------------------------------------------->
-// <------------------------------------------------------------------------------------------------------------------------------->
-  
-
-
-async function loadPDFB() {
-      
-      const fileInput = document.getElementById('servicestimeC');
-      const file = fileInput.files[0];
-      
-      if (file) {
-        const arrayBuffer = await file.arrayBuffer();
-        const uint8Array = new Uint8Array(arrayBuffer);
-        
-        const loadingTask = pdfjsLib.getDocument(uint8Array);
-        const pdf = await loadingTask.promise;
-      
-        // استخدم الملف PDF كما هو مطلوب
-        const pdfContent = await extractPDFTextB(pdf);
-        // ...
-      }
-    }
-
-    async function extractPDFTextB(pdf) {
-      const xlsxData = await loadXLSXE();
-  const {
-  column24,
-  column34,
-  column44, //kilo
-  column54,
-  column84
-} = xlsxData;
-// console.log(column34 ,column44 ,column54 )
-let totalwightWodexB = 0 ;
-let totalwightB = 0 ;
-let totalpeiceWodexB = 0 ;
-let totalpriceB = 0 ;
-let totalprofitB = 0 ;
-let totalless = 0 ;
-let totwightwodexprofit = 0 ;
-let totwightwodexless = 0 ;
-
-const column1 = [];
-const column2 = [];
-const column3 = [];
-const column4 = [];
-const column5 = [];
-const column6 = [];
-const column7 = [];
-const column8 = [];
-const column9 = [];
-const column10 = [];
-const column11 = [];
-const column12 = [];
-const column13 = [];
-let countB = []
-let count1B = []
-let count2B = []
-let countprofitwight = [] ;
-let countlesswight = []
-let countpricewodex = []
-const pdfContent = [];
-let numberB = 0 ;
-var table = $('#exampleB tbody');
-let startReading = false;
-let lineCounter = 0;
-let currentLine = '';
-for (let pageNumber = 2; pageNumber <= pdf.numPages; pageNumber++) {
-  const page = await pdf.getPage(pageNumber);
-  const pageText = await page.getTextContent();
-  for (let item of pageText.items) {
-    const { str } = item;
-    if (str.trim().length >= 6) {
-      startReading = true;
-    }
-    if (
-      startReading &&
-      (!isEnglishAlphabet(str.charAt(0))) &&
-      str.trim() !== '' &&
-      !str.includes(',') &&
-      !str.includes('•') &&
-      !str.includes('of') &&
-      !str.includes('TO') &&
-      !str.includes('ON')
-    ) {
-      if (lineCounter < 11) {
-        currentLine += str.trim() + ' ';
-        lineCounter++;
-      } else {
-        currentLine += str.trim();
-        const columnsInRow = currentLine.split(' ');
-        column1.push(parseFloat(columnsInRow[0])); //id
-        column2.push(parseFloat(columnsInRow[1])); //snipper
-        column3.push(columnsInRow[2]); //date
-        column4.push(columnsInRow[3]); //wight
-        column5.push(columnsInRow[4]);
-        column6.push(parseFloat(columnsInRow[5]));
-        column7.push(columnsInRow[6]); 
-        column8.push(columnsInRow[7]);
-        column9.push(columnsInRow[8]);
-        column10.push(columnsInRow[9]); 
-        column11.push(columnsInRow[10]);
-        column12.push(columnsInRow[11]);
-        column13.push(columnsInRow[12]); //net amount
-        pdfContent.push(currentLine);
-        currentLine = '';
-        lineCounter = 0;
-        }
-      }
-    }
-  for(let l = 0 ; l < (column34.length) ; l++){
-            for(let r = 0 ; r < (column1.length) ; r++){
-              if(column34[l] === column1[r]){
-                countB[numberB] = r ;
-                count1B[numberB] = column24[l]
-                count2B[numberB] = column84[l]
-                let profitwight = 0 ;
-
-                countpricewodex[numberB] = column54[l] ;
-                if (column44[l] > column4[r]) {
-                  profitwight = (column44[l] - column4[r]) ;
-                  totwightwodexprofit += (profitwight)
-                  countprofitwight[numberB] = profitwight
-                  countlesswight[numberB] = " "
-  table.append('<tr style="height: 83px;"><td class="u-table-cell">'+(numberB +1)+'</td><td class="u-table-cell">' + column1[r] + '</td><td class="u-table-cell">'+column24[l]+'</td><td class="u-table-cell">' + column3[r] + '</td><td class="u-table-cell">'+column84[l]+'</td><td class="u-table-cell">' + (column4[r] + " KG") + '</td><td class="u-table-cell">' + (column44[l] + " KG") + '</td><td class="u-table-cell green">' + profitwight+" KG" + '</td><td class="u-table-cell"></td><td class="u-table-cell">' + column13[r] + '</td><td class="u-table-cell">' + column54[l] + '</td><td class="u-table-cell id="'+"profchaB"+[r]+'">' + ((column54[l] - column13[r]).toFixed(3)) + '</td></tr>');
-} else {
-lesswight = ( column4[r] - column44[l]) ;
-totwightwodexless += (lesswight)
-countprofitwight[numberB] = " "
-countlesswight[numberB] = lesswight
-  table.append('<tr style="height: 83px;"><td class="u-table-cell">'+(numberB +1)+'</td><td class="u-table-cell">' + column1[r] + '</td><td class="u-table-cell">'+column24[l]+'</td><td class="u-table-cell">' + column3[r] + '</td><td class="u-table-cell">'+column84[l]+'</td><td class="u-table-cell">' + (column4[r] + " KG") + '</td><td class="u-table-cell">' + (column44[l] + " KG") + '</td><td class="u-table-cell "></td><td class="u-table-cell red">' + lesswight+" KG" + '</td><td class="u-table-cell">' + column13[r] + '</td><td class="u-table-cell">' + column54[l] + '</td><td class="u-table-cell id="'+"profchaB"+[r]+'"">' + ((column54[l] - column13[r]).toFixed(3)) + '</td></tr>');
-}
-                // number += 1 ;
-                // if(column44[l] > column4[r]){
-                  totalwightWodexB += (parseFloat(column44[l]))
-                  totalwightB += (parseFloat(column4[r]))
-                  totalpeiceWodexB += (parseFloat(column54[l]))
-                  totalpriceB += (parseFloat(column13[r]))
-                  totalprofitB += (parseFloat(((column54[l] - column13[r])).toFixed(3)))
-                  numberB += 1
-
-          }
-        }
-        }
-
-if (currentLine !== '') {
-  pdfContent.push(currentLine);
-}
-// console.log(countB)
-document.getElementById("totwightwodexprofit").innerHTML = (parseFloat( totwightwodexprofit)).toFixed(1) +" KG"
-document.getElementById("totwightwodexless").innerHTML = (parseFloat( totwightwodexless)).toFixed(1) +" KG"
-document.getElementById("totalwightWodexB").innerHTML = (parseFloat( totalwightWodexB)).toFixed(1) +" KG"
-document.getElementById("totalwightB").innerHTML = (parseFloat( totalwightB)).toFixed(1) +" KG"
-document.getElementById("totalpeiceWodexB").innerHTML = (parseFloat( totalpeiceWodexB)).toFixed(3)
-document.getElementById("totalpriceB").innerHTML = (parseFloat( totalpriceB)).toFixed(3)
-document.getElementById("totalprofitB").innerHTML = (parseFloat( totalprofitB)).toFixed(3)
-
-document.getElementById('dowaramex1').addEventListener('click', function() {
-    downloadAramexB(totwightwodexprofit ,totalwightB ,totalwightWodexB ,totalpeiceWodexB ,totalpriceB ,totalprofitB ,column1 ,column2 ,column3 ,column44 ,column4 ,column54 ,column13 ,countB ,numberB ,countprofitwight ,countpricewodex ,count1B ,count2B ,totwightwodexless ,countlesswight);
-});
-
-return pdfContent.join('\n');
-}
-    }
-
-function isEnglishAlphabet(char) {
-const charCode = char.charCodeAt(0);
-return (charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122);  // رموز A إلى Z في الأبجدية الإنجليزية
-}
-
-
-
-
-    // <------------------------------------------------------------------------------------------------------------------------------->
-// <------------------------------------------------------------------------------------------------------------------------------->
-// <------------------------------------------------------------------------------------------------------------------------------->
-
-
-
-function generateRandomDataB(totwightwodexprofit ,totalwightB ,totalwightWodexB ,totalpeiceWodexB ,totalpriceB ,totalprofitB ,column1 ,column2 ,column3 ,column44 ,column4 ,column54 ,column13 ,countB ,numberB ,countprofitwight ,countpricewodex ,count1B ,count2B ,totwightwodexless ,countlesswight) {
-          var data = [];
-          // console.log(count21)
-          for (var i = -1; i < (numberB+1) ; i++) {
-              var row = [];
-              for (var j = 0; j < 11; j++) {
-                if (i==-1){
-                  if(j==0)
-                  row.push("S.NO") ;
-                  else if (j==1)
-                  row.push("HAWB");
-                  else if (j==2)
-                  row.push("Invoice NO.");
-                  else if (j==3)
-                  row.push("date");
-                  else if (j==4)
-                  row.push("country");
-                  else if (j==5)
-                  row.push("wight DHL");
-                  else if (j==6)
-                  row.push("wight Wodex");
-                  else if (j==7)
-                  row.push("Profit wight");
-                  else if (j==8)
-                  row.push("Less wight");
-                  else if (j==9)
-                  row.push("Total DHL");
-                  else if (j==10)
-                  row.push("Price Wodex");
-                  else if (j==11)
-                  row.push("Profit Total");
-                  // document.getElementById(" " + count[i]).innerHTML = 
-                }else if( i < numberB){
-                  if(j==0)
-                  row.push(i+1);
-                  else if(j==1)
-                  row.push(column1[countB[i]]);
-                  else if (j==2)
-                  row.push(count1B[i]);
-                  else if (j==3)
-                  row.push(column3[countB[i]]);
-                  else if (j==4)
-                  row.push(count2B[i]);
-                  else if (j==5)
-                  row.push(column4[countB[i]]+ " KG");
-                  else if (j==6)
-                  row.push(column44[i]+ " KG");
-                  else if (j==7){
-                  if(countprofitwight[i] != " "){
-                  row.push(countprofitwight[i]+ " KG");
-                  }else{
-                    row.push(" ");
-                  }
-                }
-                  else if (j==8){
-                  if(countlesswight[i] != " "){
-                  row.push(countlesswight[i]+ " KG");
-                  }else{
-                    row.push(" ");
-                  }
-                }
-                  else if (j==9)
-                    row.push(column13[countB[i]]);
-                  else if (j==10)
-                  row.push(countpricewodex[i]);
-                  else if (j==11)
-                    row.push(((countpricewodex[i] - column13[countB[i]]).toFixed(2)));
-                }else if (i == numberB){
-                  if (j==0)
-                  row.push("TOTAL");
-                  else if (j==1)
-                  row.push(" ");
-                  else if (j==2)
-                  row.push(" ");
-                  else if (j==3)
-                  row.push(" ");
-                  else if (j==4)
-                  row.push(" ");
-                  else if (j==5)
-                  row.push(totalwightB +" KG");
-                  else if (j==6)
-                  row.push(totalwightWodexB +" KG");
-                  else if (j==7)
-                  row.push(totwightwodexprofit +" KG");
-                  else if (j==8)
-                  row.push(totwightwodexless +" KG");
-                  else if (j==9)
-                  row.push(totalpriceB);
-                  else if (j==10)
-                  row.push(totalpeiceWodexB);
-                  else if (j==11)
-                  row.push(totalprofitB);
-                }
-            }
-              data.push(row);
-          }
-          return data;
-      }
-
-      function downloadAramexB(totwightwodexprofit ,totalwightB ,totalwightWodexB ,totalpeiceWodexB ,totalpriceB ,totalprofitB ,column1 ,column2 ,column3 ,column44 ,column4 ,column54 ,column13 ,countB ,numberB ,countprofitwight ,countpricewodex ,count1B ,count2B ,totwightwodexless ,countlesswight) {
-var fileName = "DHL Invoice.xlsx";
-
-var workbook = XlsxPopulate.fromBlankAsync()
-  .then(function (workbook) {
-    var sheet = workbook.sheet(0);
-    sheet.name("DHL");
-
-    var data = generateRandomDataB(totwightwodexprofit ,totalwightB ,totalwightWodexB ,totalpeiceWodexB ,totalpriceB ,totalprofitB ,column1 ,column2 ,column3 ,column44 ,column4 ,column54 ,column13 ,countB ,numberB ,countprofitwight ,countpricewodex ,count1B ,count2B ,totwightwodexless ,countlesswight);
-
-    for (var i = 0; i < data.length; i++) {
-      var rowData = data[i];
-      for (var j = 0; j < rowData.length; j++) {
-        var cell = sheet.cell(i + 1, j + 1);
-        cell.value(rowData[j]);
-        cell.style({ border: true });
-      }
-    }
-
-    var usedRange = sheet.usedRange();
-    var startCell = usedRange.startCell();
-    var endCell = usedRange.endCell();
-    var columnCount = endCell.columnNumber() - startCell.columnNumber() + 1;
-
-    // تعيين حجم الأعمدة
-    for (var colIndex = startCell.columnNumber(); colIndex <= endCell.columnNumber(); colIndex++) {
-      sheet.column(colIndex).width(11); // تعيين عرض العمود
-    }
-
-    return workbook.outputAsync();
-  })
-  .then(function (blob) {
-    var link = document.createElement('a');
-    link.href = window.URL.createObjectURL(blob);
-    link.download = fileName;
-
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  });
-}
-
-  
