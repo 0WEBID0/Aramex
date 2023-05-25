@@ -145,7 +145,7 @@
 
 .u-section-1 .u-table-2 {
   width: 1308px;
-  margin: 62px calc((100% - 1140px) / 2) 55px 80px;
+  margin: 62px calc((100% - 1140px) / 2) 55px auto;
   height: 228px;
 }
 
