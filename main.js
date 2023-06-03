@@ -149,7 +149,8 @@
           !str.includes('•') &&
           !str.includes('of') &&
           !str.includes('TO') &&
-          !str.includes('ON')
+          !str.includes('ON') &&
+          !str.includes('71485584') 
         ) {
           if (lineCounter < 9) {
             currentLine += str.trim() + ' ';
